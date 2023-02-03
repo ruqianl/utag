@@ -237,6 +237,7 @@ def custom_message_passing(adata: AnnData, mode: str = "l1_norm") -> AnnData:
         A_mod = A + np.eye(A.shape[0])
 
         from sklearn.preprocessing import normalize
+	
 	A_mod = csr_matrix(A_mod)
         affinity = normalize(A_mod, axis=1, norm="l1")
     else:
