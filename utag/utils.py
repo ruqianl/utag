@@ -144,7 +144,7 @@ def measure_per_domain_cell_type_colocalization(
     a_ = adata.copy()
     sq.gr.spatial_neighbors(a_, radius=max_dist, coord_type="generic")
 
-    G = nx.from_scipy_sparse_matrix(a_.obsp["spatial_connectivities"])
+    G = nx.from_scipy_sparse_array(a_.obsp["spatial_connectivities"])
 
     utag_map = {i: x for i, x in enumerate(adata.obs[utag_key])}
     nx.set_node_attributes(G, utag_map, name=utag_key)
